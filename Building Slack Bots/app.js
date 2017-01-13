@@ -44,3 +44,13 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+'use strict';
+const slackClient = '@slack/client';
+const RtmClient = require(slackClient).RtmClient;
+const MemoryDataStore = require(slackClient).MemoryDataStore;
+const RTM_EVENTS = require(slackClient).RTM_EVENTS;
+const CLIENT_EVENTS = require(slackClient).CLIENT_EVENTS;
+
+const token = '';
