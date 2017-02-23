@@ -13,10 +13,11 @@ namespace ConsoleApp
 {
     internal class Program
     {
-        private const string delimiter = ";";
-
         public static void Main(string[] args)
         {
+            GolderFibo(10);
+            Fibonacci(10);
+            RecFibo(10);
 
             var firstCharacter = Console.Read();
             if(firstCharacter == '#'){
@@ -106,6 +107,48 @@ namespace ConsoleApp
             {
                 Console.Write(n);
             }
+        }
+
+        public static int Fibcursion(int nth)
+        {
+
+            if (nth == 0)
+            {
+                return 0;
+            }else if (nth == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return Fibcursion(nth - 1) + Fibcursion(nth - 2);
+            }
+        }
+
+        public static void RecFibo(int nth)
+        {
+            Print(Convert.ToString(Fibcursion(nth)));
+        }
+
+        public static void GolderFibo(int nth)
+        {
+            const double phi = 1.618034;
+            Print(Convert.ToString(Math.Round((Math.Pow(phi, nth) - Math.Pow((1 - phi), nth)) / Math.Sqrt(5))));
+        }
+
+        public static void Fibonacci(int nth)
+        {
+            var lead = 0;
+            var trail = 1;
+
+            for (var i = 0; i < nth; i++)
+
+            {
+                var temp = lead;
+                lead = trail;
+                trail = temp + trail;
+            }
+            Print(Convert.ToString(lead));
         }
 
         public static void Print(string number)
