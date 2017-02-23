@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
@@ -18,6 +19,19 @@ namespace ConsoleApp
             GolderFibo(35);
             Fibonacci(35);
             RecFibo(35);
+            int[] arr = new int[5];
+            for (var i = 0; i < arr.Length; i++)
+            {
+                arr[i] = arr.Length - i;
+            }
+            Quicksort(arr);
+
+            Console.Write("Sorted Array [");
+            foreach (var number in arr)
+            {
+                Console.Write(Convert.ToString(" " + number + " " ));
+            }
+            Console.Write("]");
 
             var firstCharacter = Console.Read();
             if(firstCharacter == '#'){
@@ -111,26 +125,60 @@ namespace ConsoleApp
 
         public static int Fibcursion(int nth, Dictionary<int, int> holster)
         {
-
-
-            if (nth == 0)
+            switch (nth)
             {
-                return 0;
-            }else if (nth == 1)
-            {
-                return 1;
-            }
-            else
-            {
-                int val;
-                if (holster.TryGetValue(nth, out val))
-                {
+                case 0:
+                    return 0;
+                case 1:
+                    return 1;
+                default:
+                    int val;
+                    if (holster.TryGetValue(nth, out val))
+                    {
+                        return val;
+                    }
+                    val = Fibcursion(nth - 1, holster) + Fibcursion(nth - 2, holster);
+                    holster[nth] = val;
                     return val;
-                }
-                val = Fibcursion(nth - 1, holster) + Fibcursion(nth - 2, holster);
-                holster[nth] = val;
-                return val;
             }
+        }
+
+        public static void Quicksort(int[] arr)
+        {
+            Quicksort_r(arr, 0, arr.Length - 1);
+        }
+
+        public static void Quicksort_r(int[] arr, int lo, int hi)
+        {
+            if (lo < hi)
+            {
+                int pivot = Partition(arr, lo, hi);
+                Quicksort_r(arr, lo, pivot - 1);
+                Quicksort_r(arr, pivot + 1, hi);
+            }
+        }
+
+        public static int Partition(int[] arr, int lo, int hi)
+        {
+            int pivot = arr[hi];
+            int i = lo - 1;
+            for (var j = lo; j < hi; j++)
+            {
+                if (arr[j] <= pivot)
+                {
+                    i++;
+                    Swap(arr, i, j);
+                }
+            }
+            Swap(arr, i+1, hi);
+            return i + 1;
+        }
+
+        public static void Swap(int[] arr, int pos1, int pos2)
+        {
+            int temp = arr[pos1];
+            arr[pos1] = arr[pos2];
+            arr[pos2] = temp;
         }
 
         public static void RecFibo(int nth)
@@ -161,7 +209,7 @@ namespace ConsoleApp
 
         public static void Print(string number)
         {
-            Console.Write(number  + "\n");
+            Console.Write(number + "\n");
         }
     }
 }
