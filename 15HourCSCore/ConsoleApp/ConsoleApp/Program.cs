@@ -15,9 +15,9 @@ namespace ConsoleApp
     {
         public static void Main(string[] args)
         {
-            GolderFibo(10);
-            Fibonacci(10);
-            RecFibo(10);
+            GolderFibo(35);
+            Fibonacci(35);
+            RecFibo(35);
 
             var firstCharacter = Console.Read();
             if(firstCharacter == '#'){
@@ -109,8 +109,9 @@ namespace ConsoleApp
             }
         }
 
-        public static int Fibcursion(int nth)
+        public static int Fibcursion(int nth, Dictionary<int, int> holster)
         {
+
 
             if (nth == 0)
             {
@@ -121,13 +122,20 @@ namespace ConsoleApp
             }
             else
             {
-                return Fibcursion(nth - 1) + Fibcursion(nth - 2);
+                int val;
+                if (holster.TryGetValue(nth, out val))
+                {
+                    return val;
+                }
+                val = Fibcursion(nth - 1, holster) + Fibcursion(nth - 2, holster);
+                holster[nth] = val;
+                return val;
             }
         }
 
         public static void RecFibo(int nth)
         {
-            Print(Convert.ToString(Fibcursion(nth)));
+            Print(Convert.ToString(Fibcursion(nth, new Dictionary<int, int>())));
         }
 
         public static void GolderFibo(int nth)
