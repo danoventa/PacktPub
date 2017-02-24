@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CSharp.RuntimeBinder;
+using static ConsoleApp.Sorting;
 
 namespace ConsoleApp
 {
@@ -19,6 +20,26 @@ namespace ConsoleApp
             GolderFibo(35);
             Fibonacci(35);
             RecFibo(35);
+            var s = "string";
+            char[] ca = s.ToCharArray();
+            foreach(var ch in ca)
+            {
+                Print(ch.ToString());
+            }
+            int[] arrt = new int[5];
+            for (var i = 0; i < arrt.Length; i++)
+            {
+                arrt[i] = arrt.Length * 2 - i;
+            }
+            Sorting.Quicksort(arrt);
+
+            Console.Write("Externally sorted Array [");
+            foreach (var number in arrt)
+            {
+                Console.Write(Convert.ToString(" " + number + " " ));
+            }
+            Console.Write("]\n");
+
             int[] arr = new int[5];
             for (var i = 0; i < arr.Length; i++)
             {
