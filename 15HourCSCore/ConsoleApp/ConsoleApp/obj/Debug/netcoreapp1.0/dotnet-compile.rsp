@@ -87,6 +87,7 @@
 --reference:/Users/temogen/.nuget/packages/System.Threading.Timer/4.0.1/ref/netstandard1.2/System.Threading.Timer.dll
 --reference:/Users/temogen/.nuget/packages/System.Xml.ReaderWriter/4.0.11/ref/netstandard1.3/System.Xml.ReaderWriter.dll
 --reference:/Users/temogen/.nuget/packages/System.Xml.XDocument/4.0.11/ref/netstandard1.3/System.Xml.XDocument.dll
+/Users/temogen/Documents/Github/PacktPub/15HourCSCore/ConsoleApp/ConsoleApp/Algies1.cs
 /Users/temogen/Documents/Github/PacktPub/15HourCSCore/ConsoleApp/ConsoleApp/Program.cs
 /Users/temogen/Documents/Github/PacktPub/15HourCSCore/ConsoleApp/ConsoleApp/Sorting.cs
 /Users/temogen/Documents/Github/PacktPub/15HourCSCore/ConsoleApp/ConsoleApp/Properties/AssemblyInfo.cs

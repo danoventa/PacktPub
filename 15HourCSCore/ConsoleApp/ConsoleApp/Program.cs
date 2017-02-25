@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CSharp.RuntimeBinder;
 using static ConsoleApp.Sorting;
+using static ConsoleApp.Algies1;
 
 namespace ConsoleApp
 {
@@ -17,6 +18,18 @@ namespace ConsoleApp
     {
         public static void Main(string[] args)
         {
+            Print("0, 1 expects 1: " );            Printi(GCD(0, 1));
+            Print("704, 52 expects 4: " );         Printi(GCD(704, 52));
+            Print("9, 3 expects 3: " );            Printi(GCD(9, 3));
+            Print("6, 9 expects 3: " );            Printi(GCD(6, 9));
+            Print("2, 2 expects 2: " );            Printi(GCD(2, 2));
+            Print("6, 6 expects 6: " );            Printi(GCD(6, 6));
+            Print("9, 4 expects 1: " );            Printi(GCD(9, 4));
+            Print("9, 21 expects 3: " );           Printi(GCD(9, 21));
+            Print("200, 15 expects 5: " );         Printi(GCD(200, 15));
+            Print("55, 85 expects 5: " );            Printi(GCD(55, 85));
+            Print("5, 245 expects 5: " );            Printi(GCD(5, 245));
+
             GolderFibo(35);
             Fibonacci(35);
             RecFibo(35);
@@ -226,6 +239,12 @@ namespace ConsoleApp
                 trail = temp + trail;
             }
             Print(Convert.ToString(lead));
+        }
+
+
+        public static void Printi(int number)
+        {
+            Console.Write(Convert.ToString(number) + "\n");
         }
 
         public static void Print(string number)
