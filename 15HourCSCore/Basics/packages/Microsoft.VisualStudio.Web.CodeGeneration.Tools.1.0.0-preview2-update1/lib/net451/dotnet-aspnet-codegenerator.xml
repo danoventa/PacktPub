@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dotnet-aspnet-codegenerator</name>
+    </assembly>
+    <members>
+        <member name="M:Microsoft.VisualStudio.Web.CodeGeneration.Tools.Program.Execute(System.String[])">
+             <summary>
+             The execution is done in 2 phases.
+             Phase 1 ::
+                1. Determine if the tool is running as a project dependency or not.
+                2. Try getting the project context for the project (use netcoreapp1.0 as the tfm if not running as dependency command or else use the tfm passed in)
+                3. If not running as dependency command and project context cannot be built using netcoreapp1.0, invoke project dependency command with the first tfm found in the project.json
+            
+             Phase 2 ::
+                 1. After successfully getting the Project context, invoke the CodeGenCommandExecutor.
+             </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Web.CodeGeneration.Tools.ToolCommandLineHelper.GetProjectDependencyCommandArgs(System.String[],System.String)">
+            <summary>
+            Adds the --dependencyCommand flag and --targetFramework option
+            </summary>
+        </member>
+    </members>
+</doc>
