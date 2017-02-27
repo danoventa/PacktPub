@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.Web.BrowserLink.Loader</name>
+    </assembly>
+    <members>
+        <member name="M:Microsoft.AspNetCore.Builder.BrowserLinkLoaderExtensions.UseBrowserLink(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configures the application to connect with Visual Studio using
+            Browser Link.
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Web.BrowserLink.Loader.RegisteredBrowserLinkModule">
+            <summary>
+            Represents one Browser Link middleware assembly found on the machine, and
+            provides the ability to call methods on that middleware through reflection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Web.BrowserLink.Loader.RegisteredBrowserLinkModule.Name">
+            <summary>
+            A unique name identifying this module.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Web.BrowserLink.Loader.RegisteredBrowserLinkModule.Version">
+            <summary>
+            The build version of this module.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Web.BrowserLink.Loader.RegisteredBrowserLinkModule.AssemblyPath">
+            <summary>
+            The path to the assembly implementing this module.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Web.BrowserLink.Loader.RegisteredBrowserLinkModule.ExtensionTypeName">
+            <summary>
+            The type name (including namespace) of the type that implements methods
+            that should be invoked using reflection.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Web.BrowserLink.Loader.RegisteredBrowserLinkModule.InvokeUseBrowserLink(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Load the ExtensionType, and call the UseBrowserLink method on that
+            type. This will configure Browser Link for the application.
+            </summary>
+            <param name="app">The application being configured.</param>
+            <returns><paramref name="app"/></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Web.BrowserLink.Loader.RegistryUtil">
+            <summary>
+            Support to look up information about Browser Link modules from the registry.
+            Browser Link modules are registered under RegistryUtil.BrowserLinkRegistryKey
+            as follows:
+            
+            [HKEY_LOCAL_MACHINE\(RegistryUtil.BrowserLinkRegistryKey)\(Unique-Name-For-Module)]
+            "netstandard1.5"="Path\to\assembly\for\Core\CLR"
+            "net451"="Path\to\assembly\for\Desktop\CLR"
+            "ExtensionType"="Namespace.TypeName"
+            "Version"="WTE Version"
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Web.BrowserLink.Loader.RegistryUtil.FindPreferredBrowserLinkModule">
+            <summary>
+            Return the module from the registry with the highest version number.
+            Modules should be backward-compatible, so that the highest-version
+            module can handle requests from all SxS installed versions of WTE.
+            </summary>
+            <returns>A browser link module, or null if no modules were found.</returns>
+        </member>
+    </members>
+</doc>

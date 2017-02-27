@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dotnet-razor-tooling</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.AspNetCore.Razor.Tools.Resources">
+            <summary>
+               A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.Tools.Resources.ResourceManager">
+            <summary>
+               Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.Tools.Resources.Culture">
+            <summary>
+               Overrides the current thread's CurrentUICulture property for all
+               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.Tools.Resources.CouldNotParseProvidedProtocol">
+            <summary>
+               Looks up a localized string similar to Could not parse provided protocol &apos;{0}&apos;. Protocols should be valid int32 values..
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.Tools.Resources.FailedToExecuteRazorTooling">
+            <summary>
+               Looks up a localized string similar to Failed to execute razor-tooling: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.Tools.Resources.InvalidProtocolValue">
+            <summary>
+               Looks up a localized string similar to &apos;{0}&apos;s cannot be resolved with protocol &apos;{1}&apos;. Protocol not supported..
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.Tools.Resources.ProjectDoesNotSupportProvidedFramework">
+            <summary>
+               Looks up a localized string similar to Project &apos;{0}&apos; does not support the provided framework &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Tools.Internal.AssemblyTagHelperDescriptorResolver.GetTagHelperTypes(System.String,Microsoft.AspNetCore.Razor.ErrorSink)">
+            <summary>
+            Protected virtual for testing.
+            </summary>
+        </member>
+    </members>
+</doc>
