@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using static ConsoleTest.Sorts;
+
 
 namespace ConsoleTest
 {
@@ -8,6 +10,16 @@ namespace ConsoleTest
     {
         public static void Main(string[] args)
         {
+            var aCookies = new int[3];
+            var bCookies = new int[4];
+            MergeCookies(aCookies, bCookies);
+            foreach (var i in aCookies)
+            {
+                Console.Write(Convert.ToString(i));
+            }
+
+
+
             var li = new List<int>();
             li.Add(5);
             li.Add(1);
